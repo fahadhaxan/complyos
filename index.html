@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ComplyOS — Product case study · Israr Ali</title>
+<meta name="description" content="ComplyOS product case study by Israr Ali — problem discovery, solution design, architecture and current capability of a unified compliance operations and financial crime intelligence platform.">
+<meta name="author" content="Israr Ali">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ComplyOS — Product case study · Israr Ali">
+<meta property="og:description" content="An independent product development initiative connecting compliance governance, operational controls, financial crime monitoring and AI-driven intelligence.">
+<meta property="og:image" content="assets/img/og-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ComplyOS — Product case study · Israr Ali">
+<meta name="twitter:description" content="Compliance governance, operational controls, financial crime monitoring and AI-driven intelligence in one connected environment.">
+<meta name="twitter:image" content="assets/img/og-card.jpg">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="scroll-progress" id="progress"></div>
+
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#c8102e"/>
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#067647"/>
+    </marker>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#overview" aria-label="ComplyOS — back to top">
+      <img src="assets/img/logo.png" alt="ComplyOS">
+    </a>
+    <nav class="links" id="links" aria-label="Sections">
+      <a href="#problem">Problem</a>
+      <a href="#vision">Vision</a>
+      <a href="#architecture">Architecture</a>
+      <a href="#build">Build</a>
+      <a href="#capability">Capability</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <span class="nav-tag">Israr Ali · 2026</span>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="overview">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="kicker reveal">Independent product development initiative</div>
+      <h1 class="reveal" style="--d:.05s">One connected environment for <em>compliance operations</em>.</h1>
+      <p class="hero-sub reveal" style="--d:.1s">ComplyOS — Unified Compliance Operations &amp; Financial Crime
+        Intelligence Platform</p>
+      <p class="hero-lede reveal" style="--d:.15s">An independent product development initiative exploring how
+        modern software architecture, automation and AI can address practical challenges in compliance operations
+        and financial crime technology.</p>
+      <div class="hero-chips reveal" style="--d:.2s">
+        <span>B2B SaaS</span><span>RegTech</span><span>Financial Crime Technology</span>
+      </div>
+      <div class="hero-cta reveal" style="--d:.25s">
+        <a class="btn primary" href="#problem">Explore the case study
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+        </a>
+        <a class="btn ghost" href="#capability">Capability snapshot</a>
+      </div>
+    </div>
+    <div class="hero-visual reveal" style="--d:.2s">
+      <div class="tilt" id="tilt">
+        <div class="browser">
+          <div class="browser-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <div class="url">complyos / operations dashboard</div>
+          </div>
+          <img src="assets/img/dashboard.jpg" alt="ComplyOS operations dashboard showing case volume, SLA health and priority queue" width="1600" height="1000">
+        </div>
+        <div class="float f1"><b>04</b><span>connected domains</span></div>
+        <div class="float f2"><b>RAG</b><span>grounded answers</span></div>
+        <div class="float f3"><b>Multi-tenant</b><span>schema separation</span></div>
+      </div>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#problem"><span>Scroll to explore</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v14M6 13l6 6 6-6"/></svg>
+  </a>
+</section>
+
+<!-- ============================ STATS ============================ -->
+<section class="stats-band">
+  <div class="wrap stats">
+    <div class="stat reveal"><div class="n"><span data-count="4" data-pad="2">0</span></div><div class="l">Interconnected product domains</div></div>
+    <div class="stat reveal" style="--d:.05s"><div class="n"><span data-count="1" data-pad="2">0</span></div><div class="l">Shared platform foundation</div></div>
+    <div class="stat reveal" style="--d:.1s"><div class="n">RAG</div><div class="l">Grounded compliance knowledge assistant</div></div>
+    <div class="stat reveal" style="--d:.15s"><div class="n small">Multi-tenant</div><div class="l">Tenant-specific schemas and tables</div></div>
+  </div>
+</section>
+
+<!-- ============================ PROBLEM ============================ -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span>01</span> Problem discovery</div>
+      <h2>Compliance work is interdependent.<br>The systems around it are not.</h2>
+      <p class="sec-lede">Compliance functions operate across regulatory obligations, governance documentation,
+        operational controls, financial crime monitoring, investigations and management reporting — frequently
+        through disconnected systems, individual applications, spreadsheets and manual workflows.</p>
+    </div>
+
+    <div class="toggle-row reveal">
+      <span class="toggle-label">View the five gaps as</span>
+      <div class="seg" role="tablist" aria-label="Diagram state">
+        <button class="seg-btn on" data-state="frag" role="tab" aria-selected="true">Fragmented</button>
+        <button class="seg-btn" data-state="conn" role="tab" aria-selected="false">Connected</button>
+      </div>
+      <span class="toggle-hint" id="toggleHint">Five capabilities, five separate records.</span>
+    </div>
+
+    <div class="chain" id="chain" data-state="frag">
+      <div class="chain-line" aria-hidden="true">
+        <svg viewBox="0 0 1000 2" preserveAspectRatio="none"><line x1="0" y1="1" x2="1000" y2="1"/></svg>
+        <span class="marker" style="left:20%"></span>
+        <span class="marker" style="left:40%"></span>
+        <span class="marker" style="left:60%"></span>
+        <span class="marker" style="left:80%"></span>
+      </div>
+      <div class="chain-cards">
+        <article class="gap-card reveal">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <h3>Fragmented operations</h3>
+          <p class="frag">Policies, procedures, regulatory requirements, controls and evidence maintained across
+            separate repositories and applications.</p>
+          <p class="conn">One governance and evidence environment, with shared records and version history.</p>
+        </article>
+        <article class="gap-card reveal" style="--d:.05s">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <h3>Disconnected approvals</h3>
+          <p class="frag">Policy acknowledgements, reviews and escalations coordinated by email and spreadsheets
+            outside core systems — fragmenting the audit trail.</p>
+          <p class="conn">Acknowledgement and approval workflows inside the platform, with the audit trail intact.</p>
+        </article>
+        <article class="gap-card reveal" style="--d:.1s">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20v-6M10 20V9M16 20v-4M22 20H2"/></svg></div>
+          <h3>Limited intelligence</h3>
+          <p class="frag">Reporting focuses on historical activity rather than emerging risks, operational
+            weaknesses or the implications of regulatory change.</p>
+          <p class="conn">Operational dashboards and reporting that surface risk and readiness, not just history.</p>
+        </article>
+        <article class="gap-card reveal" style="--d:.15s">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.2"/><path d="M12 12 18.5 5.5"/></svg></div>
+          <h3>Reactive monitoring</h3>
+          <p class="frag">Traditional monitoring depends heavily on predefined thresholds and static rules, missing
+            complex behavioural patterns.</p>
+          <p class="conn">Configurable detection, visual rule building and simulation — with further detection
+            capability in development.</p>
+        </article>
+        <article class="gap-card reveal" style="--d:.2s">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 0 1-12 0Z"/><path d="M12 17v5"/></svg></div>
+          <h3>Technology accessibility</h3>
+          <p class="frag">Implementing and maintaining sophisticated compliance infrastructure is difficult for
+            growing fintechs, especially when functionality is spread across systems.</p>
+          <p class="conn">A modular, multi-tenant platform that extends incrementally instead of being replaced.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="callout reveal">
+      <div class="callout-k">The broader problem</div>
+      <p>The absence of an intelligent, cohesive environment connecting compliance governance, operational
+        execution and financial crime monitoring.</p>
+      <a class="arrow-link" href="#vision">See how the product answers it
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <div class="sub-head reveal">
+      <h3>Research &amp; discovery</h3>
+      <p>First-hand exposure across banking and fintech, industry research and professional discussions.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h12M3 18h7"/></svg></div>
+        <h4>Operational problem discovery</h4>
+        <p>Recurring inefficiencies in regulatory change management, policy maintenance and documentation — and
+          the gap between documented frameworks and actual execution.</p>
+      </article>
+      <article class="card reveal" style="--d:.05s">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/></svg></div>
+        <h4>Industry &amp; technology assessment</h4>
+        <p>Functional gaps across existing compliance and monitoring tools, the limits of rule-based detection, and
+          opportunities in document intelligence, semantic retrieval and anomaly detection.</p>
+      </article>
+      <article class="card reveal" style="--d:.1s">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7 12 3l8 4v10l-8 4-8-4Z"/><path d="M12 7v14M4 7l8 4 8-4"/></svg></div>
+        <h4>Product &amp; architecture exploration</h4>
+        <p>Approaches to modular, configurable compliance software; multi-tenant application and data architecture;
+          and practical applications of retrieval-augmented generation.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ VISION ============================ -->
+<section class="section alt" id="vision">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span>02</span> Product vision &amp; solution design</div>
+      <h2>Four domains, designed to reinforce one another.</h2>
+      <p class="sec-lede">ComplyOS aims to provide a connected environment where compliance documentation,
+        operational controls, financial crime detection and intelligent decision support work together rather than
+        operate as isolated capabilities.</p>
+    </div>
+
+    <div class="domain-explorer reveal">
+      <div class="dom-tabs" role="tablist" aria-label="Product domains">
+        <button class="dom-tab on" data-panel="d1" role="tab" aria-selected="true">
+          <span class="num">01</span><span class="lbl">Governance &amp; Regulatory Change</span></button>
+        <button class="dom-tab" data-panel="d2" role="tab" aria-selected="false">
+          <span class="num">02</span><span class="lbl">Operations &amp; Control Management</span></button>
+        <button class="dom-tab" data-panel="d3" role="tab" aria-selected="false">
+          <span class="num">03</span><span class="lbl">Financial Crime Monitoring</span></button>
+        <button class="dom-tab" data-panel="d4" role="tab" aria-selected="false">
+          <span class="num">04</span><span class="lbl">AI &amp; Compliance Intelligence</span></button>
+      </div>
+
+      <div class="dom-panels">
+        <div class="dom-panel on" id="d1">
+          <div class="dom-copy">
+            <h3>Compliance Governance &amp; Regulatory Change</h3>
+            <p>A central environment for managing regulatory obligations, compliance documentation and internal
+              governance.</p>
+            <ul class="ticks">
+              <li>Regulatory requirement repository and change management</li>
+              <li>Policy and SOP management</li>
+              <li>Document version history and classification</li>
+              <li>System documentation and knowledge resources</li>
+              <li>Policy acknowledgement workflows</li>
+            </ul>
+          </div>
+          <figure class="shot">
+            <img src="assets/img/gcr.jpg" alt="GCR rulebook dashboard" data-shot="GCR Rulebook dashboard — rules, approvals and governance logs" data-title="Governance & Regulatory Change">
+            <figcaption>Governance surfaces — rulebook status, approvals and change history.</figcaption>
+          </figure>
+        </div>
+        <div class="dom-panel" id="d2">
+          <div class="dom-copy">
+            <h3>Compliance Operations &amp; Control Management</h3>
+            <p>A structured environment for translating compliance frameworks into operational activities and
+              maintaining supporting evidence.</p>
+            <ul class="ticks">
+              <li>Centralised compliance control register</li>
+              <li>Evidence collection and management</li>
+              <li>Policy acknowledgement and approval workflows</li>
+              <li>Audit evidence organisation</li>
+              <li>Operational dashboards and reporting</li>
+            </ul>
+          </div>
+          <figure class="shot">
+            <img src="assets/img/mlro.jpg" alt="MLRO dashboard" data-shot="MLRO dashboard — regulatory changes, policy alignment and evidence pack generation" data-title="Operations & Control Management">
+            <figcaption>MLRO dashboard — regulatory change impact, reviews and evidence packs.</figcaption>
+          </figure>
+        </div>
+        <div class="dom-panel" id="d3">
+          <div class="dom-copy">
+            <h3>Financial Crime Monitoring &amp; Detection</h3>
+            <p>Monitoring designed to support both historical transaction analysis and ongoing transaction
+              monitoring — with a configurable path from risk identification to active detection.</p>
+            <ul class="ticks">
+              <li>Transaction ingestion and monitoring</li>
+              <li>Configurable detection capabilities</li>
+              <li>Visual rule-building interface</li>
+              <li>Simulation and evaluation</li>
+              <li>Alert and case management</li>
+            </ul>
+          </div>
+          <figure class="shot">
+            <img src="assets/img/aml.jpg" alt="AML workspace" data-shot="AML workspace — alert triage, case ownership and SLA state" data-title="Financial Crime Monitoring">
+            <figcaption>AML workspace — alerts, investigations and SLA state in one queue.</figcaption>
+          </figure>
+        </div>
+        <div class="dom-panel" id="d4">
+          <div class="dom-copy">
+            <h3>AI &amp; Compliance Intelligence</h3>
+            <p>AI embedded into practical compliance workflows to improve information access, document
+              interpretation and analytical efficiency.</p>
+            <ul class="ticks">
+              <li>Retrieval-augmented generation for compliance knowledge</li>
+              <li>Contextual question answering with source references</li>
+              <li>Document summarisation and metadata extraction</li>
+              <li>Semantic search and information retrieval</li>
+              <li>AI-assisted compliance analysis</li>
+            </ul>
+          </div>
+          <figure class="shot">
+            <img src="assets/img/chat.jpg" alt="Chat with documents" data-shot="Chat with Documents — questions answered from internal policy documentation" data-title="AI & Compliance Intelligence">
+            <figcaption>Compliance knowledge assistant — answers grounded in internal documentation.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <div class="foundation">
+        <span class="f-label">One shared platform foundation</span>
+        <span class="f-pill">Modular</span>
+        <span class="f-pill">Tenant-aware</span>
+        <span class="f-pill">Configurable</span>
+        <span class="f-pill">Integration</span>
+        <span class="f-pill">Practical AI</span>
+      </div>
+    </div>
+
+    <div class="sub-head reveal">
+      <h3>Intended workflow — financial crime monitoring</h3>
+      <p>Reduce the distance between identifying a risk and running detection against it.</p>
+    </div>
+    <div class="workflow reveal">
+      <div class="steps" role="tablist" aria-label="Workflow steps">
+        <button class="step on" data-step="0" role="tab" aria-selected="true"><span class="n">01</span><span class="t">Idea</span></button>
+        <span class="chev" aria-hidden="true"></span>
+        <button class="step" data-step="1" role="tab" aria-selected="false"><span class="n">02</span><span class="t">Build</span></button>
+        <span class="chev" aria-hidden="true"></span>
+        <button class="step" data-step="2" role="tab" aria-selected="false"><span class="n">03</span><span class="t">Simulate</span></button>
+        <span class="chev" aria-hidden="true"></span>
+        <button class="step" data-step="3" role="tab" aria-selected="false"><span class="n">04</span><span class="t">Deploy</span></button>
+      </div>
+      <div class="step-detail">
+        <p class="sd on">A compliance team identifies a financial crime risk that needs a new detection capability.</p>
+        <p class="sd">The detection is configured through a visual rule-building interface rather than a long
+          engineering hand-off cycle.</p>
+        <p class="sd">Rules are evaluated against transaction data before going live, so behaviour is tested first.</p>
+        <p class="sd">The capability enters active monitoring, with alerts and cases managed behind it.</p>
+      </div>
+      <div class="quote">
+        <p>“Moving from rule ideation to active detection in days, rather than months — while reducing routine
+          dependency on engineering teams.”</p>
+        <span>Product objective — financial crime monitoring</span>
+      </div>
+    </div>
+
+    <div class="sub-head reveal">
+      <h3>Connected by design, not by integration</h3>
+      <p>The same records support governance, operations and detection.</p>
+    </div>
+    <div class="grid-3 chains">
+      <article class="card chain-card reveal">
+        <div class="chain-lbl">Governance → operations</div>
+        <div class="pill-flow"><span>Policy</span><i>→</i><span>Acknowledgement</span><i>→</i><span>Evidence</span></div>
+        <p>A policy is acknowledged and tracked, then feeds the control register and audit evidence.</p>
+      </article>
+      <article class="card chain-card reveal" style="--d:.05s">
+        <div class="chain-lbl">Detection → operations</div>
+        <div class="pill-flow"><span>Alert</span><i>→</i><span>Case</span><i>→</i><span>Report</span></div>
+        <p>Alerts open cases with owners and SLAs, and roll up into regulatory reporting.</p>
+      </article>
+      <article class="card chain-card reveal" style="--d:.1s">
+        <div class="chain-lbl">Knowledge → decisions</div>
+        <div class="pill-flow"><span>Documents</span><i>→</i><span>Retrieval</span><i>→</i><span>Cited answer</span></div>
+        <p>Answers are grounded in internal documentation, with source references for traceability.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ARCHITECTURE ============================ -->
+<section class="section" id="architecture">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span>03</span> System architecture</div>
+      <h2>Modular by domain. Separate by tenant.</h2>
+      <p class="sec-lede">A modular, tenant-aware architecture designed to support distinct functional domains while
+        maintaining separation between tenant data.</p>
+    </div>
+
+    <div class="arch reveal">
+      <div class="arch-tabs" role="tablist" aria-label="Architecture views">
+        <button class="arch-tab on" data-arch="a1" role="tab" aria-selected="true">Multi-tenant application &amp; data</button>
+        <button class="arch-tab" data-arch="a2" role="tab" aria-selected="false">Control rule book</button>
+        <button class="arch-tab" data-arch="a3" role="tab" aria-selected="false">Financial crime monitoring</button>
+        <button class="arch-tab" data-arch="a4" role="tab" aria-selected="false">AI &amp; document intelligence</button>
+      </div>
+
+      <div class="arch-panel on" id="a1">
+        <svg viewBox="0 0 920 330" class="diagram" role="img" aria-label="Multi-tenant architecture diagram">
+          <rect x="30" y="16" width="860" height="58" rx="10" class="dg-box"/>
+          <text x="46" y="40" class="dg-title">Application layer</text>
+          <g class="dg-chip"><rect x="330" y="30" width="120" height="30" rx="7"/><text x="390" y="49">Governance</text></g>
+          <g class="dg-chip"><rect x="460" y="30" width="120" height="30" rx="7"/><text x="520" y="49">Operations</text></g>
+          <g class="dg-chip"><rect x="590" y="30" width="130" height="30" rx="7"/><text x="655" y="49">Monitoring</text></g>
+          <g class="dg-chip"><rect x="730" y="30" width="140" height="30" rx="7"/><text x="800" y="49">Intelligence</text></g>
+
+          <rect x="30" y="92" width="860" height="36" rx="9" class="dg-bar"/>
+          <text x="46" y="115" class="dg-onbar">Session · roles and permissions · tenant-aware data access</text>
+
+          <rect x="30" y="152" width="860" height="150" rx="10" class="dg-box"/>
+          <text x="46" y="178" class="dg-title">Shared database environment</text>
+          <g class="dg-tenant"><rect x="60" y="196" width="250" height="86" rx="8"/><text x="76" y="222" class="dg-strong">Tenant A schema</text><text x="76" y="244" class="dg-small">tables · records · versions</text><text x="76" y="264" class="dg-small">separated from Tenant B and C</text></g>
+          <g class="dg-tenant"><rect x="335" y="196" width="250" height="86" rx="8"/><text x="351" y="222" class="dg-strong">Tenant B schema</text><text x="351" y="244" class="dg-small">tables · records · versions</text><text x="351" y="264" class="dg-small">separated from Tenant A and C</text></g>
+          <g class="dg-tenant"><rect x="610" y="196" width="250" height="86" rx="8"/><text x="626" y="222" class="dg-strong">Tenant C schema</text><text x="626" y="244" class="dg-small">tables · records · versions</text><text x="626" y="264" class="dg-small">separated from Tenant A and B</text></g>
+        </svg>
+        <p class="d-note">Conceptual representation of the platform's design and data organisation — not a claim that
+          every module operates as an independently deployed service.</p>
+      </div>
+
+      <div class="arch-panel" id="a2">
+        <svg viewBox="0 0 920 340" class="diagram" role="img" aria-label="Control rule book lifecycle diagram">
+          <text x="30" y="30" class="dg-label">GOVERNANCE PROTOCOL LIFECYCLE</text>
+
+          <rect x="30" y="54" width="190" height="64" rx="9" class="dg-box"/>
+          <text x="125" y="82" class="dg-strong dg-mid">Draft</text>
+          <text x="125" y="102" class="dg-small dg-mid">authored and classified</text>
+
+          <rect x="245" y="54" width="190" height="64" rx="9" class="dg-box"/>
+          <text x="340" y="82" class="dg-strong dg-mid">In review</text>
+          <text x="340" y="102" class="dg-small dg-mid">approval workflow</text>
+
+          <rect x="460" y="54" width="190" height="64" rx="9" class="dg-box"/>
+          <text x="555" y="82" class="dg-strong dg-mid">Approved</text>
+          <text x="555" y="102" class="dg-small dg-mid">version recorded</text>
+
+          <rect x="675" y="54" width="190" height="64" rx="9" class="dg-box"/>
+          <text x="770" y="82" class="dg-strong dg-mid">Published</text>
+          <text x="770" y="102" class="dg-small dg-mid">live in the rule book</text>
+
+          <path d="M220 86 H245" class="dg-arrow"/>
+          <path d="M435 86 H460" class="dg-arrow"/>
+          <path d="M650 86 H675" class="dg-arrow"/>
+
+          <rect x="675" y="162" width="190" height="54" rx="9" class="dg-box"/>
+          <text x="770" y="186" class="dg-strong dg-mid">Periodic review</text>
+          <text x="770" y="204" class="dg-small dg-mid">scheduled revalidation</text>
+          <path d="M770 118 V162" class="dg-arrow"/>
+          <path d="M675 189 H125 V118" class="dg-arrow dashed"/>
+
+          <rect x="30" y="248" width="835" height="74" rx="9" class="dg-box"/>
+          <text x="50" y="276" class="dg-title">Recorded against every change</text>
+          <g class="dg-chip"><rect x="50" y="288" width="180" height="26" rx="6"/><text x="140" y="305">Change log</text></g>
+          <g class="dg-chip"><rect x="250" y="288" width="180" height="26" rx="6"/><text x="340" y="305">Approval workflow</text></g>
+          <g class="dg-chip"><rect x="450" y="288" width="180" height="26" rx="6"/><text x="540" y="305">Thresholds &amp; parameters</text></g>
+          <g class="dg-chip"><rect x="650" y="288" width="180" height="26" rx="6"/><text x="740" y="305">Risk register</text></g>
+        </svg>
+        <p class="d-note">Every governance protocol moves through a controlled lifecycle — authored, reviewed,
+          approved, published and periodically revalidated — with each step recorded.</p>
+      </div>
+
+      <div class="arch-panel" id="a3">
+        <svg viewBox="0 0 920 340" class="diagram" role="img" aria-label="Financial crime monitoring pipeline diagram">
+          <text x="30" y="30" class="dg-label">DETECTION PIPELINE</text>
+
+          <rect x="30" y="56" width="210" height="64" rx="9" class="dg-box"/>
+          <text x="135" y="84" class="dg-strong dg-mid">Historical / batch datasets</text>
+          <text x="135" y="104" class="dg-small dg-mid">uploaded for analysis</text>
+
+          <rect x="30" y="178" width="210" height="64" rx="9" class="dg-box"/>
+          <text x="135" y="206" class="dg-strong dg-mid">Ongoing transaction feed</text>
+          <text x="135" y="226" class="dg-small dg-mid">monitored as received</text>
+
+          <path d="M240 88 H266 Q292 88 292 116" class="dg-arrow"/>
+          <path d="M240 210 H266 Q292 210 292 182" class="dg-arrow"/>
+
+          <rect x="292" y="98" width="208" height="102" rx="9" class="dg-box"/>
+          <text x="396" y="126" class="dg-strong dg-mid">Common monitoring</text>
+          <text x="396" y="144" class="dg-strong dg-mid">environment</text>
+          <text x="396" y="168" class="dg-small dg-mid">retrospective and ongoing</text>
+
+          <path d="M500 149 H552" class="dg-arrow"/>
+
+          <rect x="552" y="112" width="168" height="74" rx="9" class="dg-box"/>
+          <text x="636" y="140" class="dg-strong dg-mid">Rule execution</text>
+          <text x="636" y="160" class="dg-small dg-mid">configurable detection</text>
+
+          <path d="M720 149 H748 V85 H778" class="dg-arrow"/>
+          <path d="M720 149 H748 V223 H778" class="dg-arrow"/>
+
+          <rect x="778" y="58" width="122" height="54" rx="9" class="dg-box"/>
+          <text x="839" y="90" class="dg-strong dg-mid">Alerts</text>
+          <rect x="778" y="196" width="122" height="54" rx="9" class="dg-box"/>
+          <text x="839" y="228" class="dg-strong dg-mid">Cases</text>
+          <path d="M839 112 V196" class="dg-arrow"/>
+
+          <rect x="292" y="232" width="360" height="62" rx="9" class="dg-dashed"/>
+          <text x="312" y="258" class="dg-small">Additional detection capabilities</text>
+          <text x="312" y="278" class="dg-small">under development</text>
+        </svg>
+        <p class="d-note">One monitoring environment for retrospective analysis and ongoing activity, with
+          configurable rule execution feeding alerts and cases.</p>
+      </div>
+
+      <div class="arch-panel" id="a4">
+        <svg viewBox="0 0 920 360" class="diagram" role="img" aria-label="AI and document intelligence pipeline diagram">
+          <text x="30" y="34" class="dg-label">DOCUMENT PROCESSING</text>
+          <g class="dg-flow"><rect x="30" y="48" width="150" height="52" rx="8"/><text x="48" y="70">Document</text><text x="48" y="88">ingestion</text></g>
+          <path d="M180 74 H206" class="dg-arrow"/>
+          <g class="dg-flow"><rect x="206" y="48" width="150" height="52" rx="8"/><text x="224" y="70">Text</text><text x="224" y="88">extraction</text></g>
+          <path d="M356 74 H382" class="dg-arrow"/>
+          <g class="dg-flow"><rect x="382" y="48" width="150" height="52" rx="8"/><text x="400" y="70">Metadata</text><text x="400" y="88">identification</text></g>
+          <path d="M532 74 H558" class="dg-arrow"/>
+          <g class="dg-flow"><rect x="558" y="48" width="150" height="52" rx="8"/><text x="576" y="70">Embedding</text><text x="576" y="88">generation</text></g>
+          <path d="M708 74 H734" class="dg-arrow"/>
+          <g class="dg-flow accent"><rect x="734" y="48" width="156" height="52" rx="8"/><text x="752" y="70">Vector</text><text x="752" y="88">indexing</text></g>
+
+          <text x="30" y="176" class="dg-label">QUESTION ANSWERING</text>
+          <g class="dg-flow"><rect x="30" y="190" width="150" height="52" rx="8"/><text x="48" y="212">User</text><text x="48" y="230">query</text></g>
+          <path d="M180 216 H206" class="dg-arrow"/>
+          <g class="dg-flow"><rect x="206" y="190" width="150" height="52" rx="8"/><text x="224" y="212">Semantic</text><text x="224" y="230">retrieval</text></g>
+          <path d="M356 216 H382" class="dg-arrow"/>
+          <g class="dg-flow"><rect x="382" y="190" width="150" height="52" rx="8"/><text x="400" y="212">Relevant</text><text x="400" y="230">context</text></g>
+          <path d="M532 216 H558" class="dg-arrow"/>
+          <g class="dg-flow"><rect x="558" y="190" width="150" height="52" rx="8"/><text x="576" y="212">Language</text><text x="576" y="230">model</text></g>
+          <path d="M708 216 H734" class="dg-arrow"/>
+          <g class="dg-flow accent"><rect x="734" y="190" width="156" height="52" rx="8"/><text x="752" y="212">Contextual</text><text x="752" y="230">response</text></g>
+
+          <path d="M812 100 V190" class="dg-arrow dashed"/>
+          <text x="824" y="148" class="dg-small">grounded</text>
+          <text x="30" y="308" class="dg-small">Responses are grounded in the organisation's documentation, with source references for traceability.</text>
+          <text x="30" y="330" class="dg-small">Retrieval optimisation improves efficiency for repeated or similar queries.</text>
+        </svg>
+        <p class="d-note">Document processing and question answering are separate pipelines; the vector index
+          supplies the context that grounds each answer.</p>
+      </div>
+    </div>
+
+    <div class="principles">
+      <div class="p-item reveal"><div class="p-n">01</div><h4>Modularity</h4><p>Functional domains stay logically organised and extensible.</p></div>
+      <div class="p-item reveal" style="--d:.05s"><div class="p-n">02</div><h4>Tenant isolation</h4><p>Tenant data remains separated within a shared database environment.</p></div>
+      <div class="p-item reveal" style="--d:.1s"><div class="p-n">03</div><h4>Configurability</h4><p>Compliance functionality adapts to changing operational requirements.</p></div>
+      <div class="p-item reveal" style="--d:.15s"><div class="p-n">04</div><h4>Integration</h4><p>Capabilities communicate through defined interfaces.</p></div>
+      <div class="p-item reveal" style="--d:.2s"><div class="p-n">05</div><h4>Practical AI</h4><p>AI addresses identifiable workflow challenges rather than existing as a standalone feature.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BUILD ============================ -->
+<section class="section alt" id="build">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span>04</span> Product development &amp; implementation</div>
+      <h2>From recurring problems to working product.</h2>
+      <p class="sec-lede">Development has followed an iterative approach — combining functional requirements,
+        architectural decisions, AI-assisted implementation and continuous refinement.</p>
+    </div>
+
+    <div class="cycle reveal" aria-label="Development cycle">
+      <div class="c-step"><span>Problem identification</span></div><i>→</i>
+      <div class="c-step"><span>Functional requirements</span></div><i>→</i>
+      <div class="c-step"><span>Solution evaluation</span></div><i>→</i>
+      <div class="c-step"><span>Architecture &amp; design</span></div><i>→</i>
+      <div class="c-step"><span>AI-assisted implementation</span></div><i>→</i>
+      <div class="c-step"><span>Testing &amp; refinement</span></div>
+    </div>
+
+    <div class="grid-2 build-cards">
+      <article class="bc reveal">
+        <div class="bc-head"><span class="bc-tag">Documentation</span><h3>Regulatory &amp; compliance documentation</h3></div>
+        <p class="bc-problem">Documentation is fragmented, manual to classify and hard to retrieve.</p>
+        <ul class="ticks">
+          <li>Centralised regulatory requirement repository with create, update and removal</li>
+          <li>SOP library with PDF uploads, versioning and document downloads</li>
+          <li>Automated document classification, labelling and text extraction</li>
+          <li>Searchable system documentation and built-in documentation editing</li>
+        </ul>
+        <img src="assets/img/gcr.jpg" alt="Rule library" data-shot="Rule library — governance protocols with status, ownership and version" data-title="Documentation">
+      </article>
+      <article class="bc reveal" style="--d:.05s">
+        <div class="bc-head"><span class="bc-tag">Controls &amp; evidence</span><h3>Compliance controls &amp; evidence</h3></div>
+        <p class="bc-problem">Controls and supporting evidence spread across spreadsheets, documents and approvals.</p>
+        <ul class="ticks">
+          <li>Centralised compliance control register</li>
+          <li>Policy acknowledgement workflows</li>
+          <li>Evidence pack functionality for audit readiness</li>
+          <li>Dashboard widgets for operational visibility</li>
+        </ul>
+        <img src="assets/img/mlro.jpg" alt="MLRO dashboard" data-shot="MLRO dashboard — regulatory changes, reviews and evidence" data-title="Controls & evidence">
+      </article>
+      <article class="bc reveal" style="--d:.1s">
+        <div class="bc-head"><span class="bc-tag">Monitoring</span><h3>Financial crime monitoring</h3></div>
+        <p class="bc-problem">Monitoring must analyse activity and adapt detection as risks evolve.</p>
+        <ul class="ticks">
+          <li>Historical transaction upload and batch processing</li>
+          <li>Support for ongoing transaction processing</li>
+          <li>Backend rule execution and a visual rule-building interface</li>
+          <li>Simulation capability and alert / case management</li>
+        </ul>
+        <p class="bc-note">Rule builder and simulation are developed; integration between the components remains outstanding.</p>
+        <img src="assets/img/aml.jpg" alt="AML workspace" data-shot="AML workspace — investigations, ownership and SLA" data-title="Monitoring">
+      </article>
+      <article class="bc reveal" style="--d:.15s">
+        <div class="bc-head"><span class="bc-tag">Intelligence</span><h3>AI-powered compliance knowledge</h3></div>
+        <p class="bc-problem">Finding relevant information across large policy collections is slow and manual.</p>
+        <ul class="ticks">
+          <li>RAG-based compliance knowledge assistant</li>
+          <li>Text extraction, embedding generation and semantic retrieval</li>
+          <li>Context-aware responses grounded in internal documentation</li>
+          <li>Source references and retrieval optimisation for repeated queries</li>
+        </ul>
+        <img src="assets/img/chat.jpg" alt="Chat with documents" data-shot="Chat with Documents — grounded answers from internal policy documentation" data-title="Compliance intelligence">
+      </article>
+    </div>
+
+    <div class="sub-head reveal">
+      <h3>Product interfaces</h3>
+      <p>Click any screen to open it full size.</p>
+    </div>
+    <div class="gallery reveal" id="gallery">
+      <button class="g-item" data-shot="Operations dashboard — case volume, SLA health and priority queue" data-title="Operations dashboard"><img src="assets/img/dashboard.jpg" alt="Operations dashboard"><span class="g-cap">Operations dashboard</span></button>
+      <button class="g-item" data-shot="Compliance home — connected product surfaces" data-title="Compliance home"><img src="assets/img/home.jpg" alt="Compliance home"><span class="g-cap">Compliance home</span></button>
+      <button class="g-item" data-shot="GCR rulebook — governance protocols and approvals" data-title="GCR rulebook"><img src="assets/img/gcr.jpg" alt="GCR rulebook"><span class="g-cap">GCR rulebook</span></button>
+      <button class="g-item" data-shot="Rule detail — version history, linked work items and governance" data-title="Rule detail"><img src="assets/img/rule.jpg" alt="Rule detail"><span class="g-cap">Rule detail</span></button>
+      <button class="g-item" data-shot="AML workspace — investigations, ownership and SLA state" data-title="AML workspace"><img src="assets/img/aml.jpg" alt="AML workspace"><span class="g-cap">AML workspace</span></button>
+      <button class="g-item" data-shot="MLRO dashboard — regulatory change, reviews and evidence packs" data-title="MLRO dashboard"><img src="assets/img/mlro.jpg" alt="MLRO dashboard"><span class="g-cap">MLRO dashboard</span></button>
+      <button class="g-item" data-shot="Chat with Documents — grounded answers with source references" data-title="Chat with Documents"><img src="assets/img/chat.jpg" alt="Chat with Documents"><span class="g-cap">Compliance assistant</span></button>
+      <button class="g-item" data-shot="Rule library — governance protocol catalogue" data-title="Rule library"><img src="assets/img/rulelib.jpg" alt="Rule library"><span class="g-cap">Rule library</span></button>
+    </div>
+
+    <div class="grid-2 craft">
+      <div class="reveal">
+        <div class="sub-head" style="margin-top:0"><h3>My contribution</h3></div>
+        <ul class="ticks">
+          <li>Identifying product opportunities from operational challenges</li>
+          <li>Defining functional scope, requirements and workflows</li>
+          <li>Evaluating technical approaches and their trade-offs</li>
+          <li>Defining data structures and functional relationships</li>
+          <li>Making architectural and product design decisions</li>
+          <li>Directing and reviewing AI-assisted implementation</li>
+          <li>Investigating issues, refining functionality and validating outcomes</li>
+        </ul>
+        <p style="font-size:12.8px;line-height:1.7;color:var(--muted);margin-top:18px">The development approach
+          combines product ownership and technical exploration — with AI-assisted tools supporting implementation
+          and iterative refinement.</p>
+      </div>
+      <div class="reveal" style="--d:.05s">
+        <div class="sub-head" style="margin-top:0"><h3>Tools &amp; methods</h3></div>
+                <div class="tools">
+          <div class="tool-cat">
+            <div class="tc-label">Research</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#20808D" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z"/></svg>Perplexity</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#10A37F" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>ChatGPT</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#4285F4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg>Gemini</div>
+          </div>
+          <div class="tool-cat">
+            <div class="tc-label">PRDs &amp; specs</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#10A37F" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>ChatGPT</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#D97757" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg>Claude</div>
+          </div>
+          <div class="tool-cat">
+            <div class="tc-label">UI / UX design</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#F24E1E" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg>Figma</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#4285F4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 3l4 4-4 4-4-4Zm10 0 4 4-4 4-4-4ZM7 13l4 4-4 4-4-4Zm10 0 4 4-4 4-4-4Z"/></svg>Google Stitch</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#4285F4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l2.4 7.6L22 12l-7.6 2.4L12 22l-2.4-7.6L2 12l7.6-2.4Z"/></svg>Google AI Studio</div>
+          </div>
+          <div class="tool-cat">
+            <div class="tc-label">Prototyping</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#0F172A" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 2l6 8h-3v6h-6v-6H6Z"/><path d="M6 20h12v2H6Z"/></svg>Antigravity</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#0F172A" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9 6 3 12l6 6 1.6-1.6L6.2 12l4.4-4.4Z"/><path d="M15 6l6 6-6 6-1.6-1.6L17.8 12l-4.4-4.4Z"/></svg>Codex</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#4D6BFE" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M23.748 4.651c-.254-.124-.364.113-.512.233-.051.04-.094.09-.137.137-.372.397-.806.657-1.373.626-.829-.046-1.537.214-2.163.848-.133-.782-.575-1.248-1.247-1.548-.352-.155-.708-.311-.955-.65-.172-.24-.219-.509-.305-.774-.055-.16-.11-.323-.293-.35-.2-.031-.278.136-.356.276-.313.572-.434 1.202-.422 1.84.027 1.436.633 2.58 1.838 3.393.137.094.172.187.129.323-.082.28-.18.553-.266.833-.055.179-.137.218-.328.14a5.5 5.5 0 0 1-1.737-1.179c-.857-.828-1.631-1.743-2.597-2.46a12 12 0 0 0-.689-.47c-.985-.957.13-1.743.387-1.836.27-.098.094-.433-.778-.428-.872.003-1.67.295-2.687.685a3 3 0 0 1-.465.136 9.6 9.6 0 0 0-2.883-.101c-1.885.21-3.39 1.1-4.497 2.622C.082 8.776-.231 10.854.152 13.02c.403 2.284 1.568 4.175 3.36 5.653 1.857 1.533 3.997 2.284 6.438 2.14 1.482-.085 3.132-.284 4.994-1.86.47.234.962.328 1.78.398.629.058 1.235-.031 1.705-.129.735-.155.684-.836.418-.961-2.155-1.004-1.682-.595-2.112-.926 1.095-1.295 2.768-3.598 3.284-6.733.05-.346.115-.834.108-1.114-.004-.171.035-.238.23-.257a4.2 4.2 0 0 0 1.545-.475c1.397-.763 1.96-2.016 2.093-3.517.02-.23-.004-.467-.247-.588M11.58 18.168c-2.088-1.642-3.101-2.183-3.52-2.16-.39.024-.32.472-.234.763.09.288.207.487.371.74.114.167.192.416-.113.603-.673.416-1.842-.14-1.897-.168-1.361-.801-2.5-1.86-3.301-3.306-.775-1.393-1.225-2.888-1.299-4.482-.02-.385.094-.522.477-.592a4.7 4.7 0 0 1 1.53-.038c2.131.311 3.946 1.264 5.467 2.774.868.86 1.525 1.887 2.202 2.89.72 1.066 1.494 2.082 2.48 2.915.348.291.626.513.892.677-.802.09-2.14.109-3.055-.615zm1.001-6.44a.306.306 0 0 1 .415-.287.3.3 0 0 1 .113.074.3.3 0 0 1 .086.214c0 .17-.136.307-.308.307a.303.303 0 0 1-.306-.307m3.11 1.596c-.2.081-.4.151-.591.16a1.25 1.25 0 0 1-.798-.254c-.274-.23-.47-.358-.551-.758a1.7 1.7 0 0 1 .015-.588c.07-.327-.007-.537-.238-.727-.188-.156-.426-.199-.689-.199a.6.6 0 0 1-.254-.078.253.253 0 0 1-.114-.358 1 1 0 0 1 .192-.21c.356-.202.767-.136 1.146.016.352.144.618.408 1.001.782.392.451.462.576.685.915.176.264.336.536.446.848.066.194-.02.353-.25.45"/></svg>DeepSeek Harness</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#FF5A5F" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 21s-7.5-4.7-9.4-9.1C1.2 8.4 3 5 6.6 5c2 0 3.6 1.1 4.6 2.7C12.2 6.1 13.8 5 15.8 5 19.4 5 21.2 8.4 19.8 11.9 17.9 16.3 12 21 12 21Z"/></svg>Lovable</div>
+          </div>
+          <div class="tool-cat">
+            <div class="tc-label">AI APIs</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#0EA5E9" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 4a6 6 0 1 1 0 12 6 6 0 0 1 0-12Z"/></svg>TokenHarbour</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#1C3C3C" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M6.0988 5.9175C2.7359 5.9175 0 8.6462 0 12s2.736 6.0825 6.0988 6.0825h11.8024C21.2641 18.0825 24 15.3538 24 12s-2.736-6.0825-6.0988-6.0825ZM5.9774 7.851c.493.0124 1.02.2496 1.273.6228.3673.4592.4778 1.0668.8944 1.4932.5604.6118 1.199 1.1505 1.7161 1.802.4892.5954.8386 1.2937 1.1436 1.9975.1244.2335.1257.5202.31.7197.0908.1204.5346.4483.4383.5645.0555.1204.4702.286.3263.4027-.1944.04-.4129.0476-.5616-.1074-.0549.126-.183.0596-.2819.0432a4 4 0 0 0-.025.0736c-.3288.0219-.5754-.3126-.732-.565-.3111-.168-.6642-.2702-.982-.446-.0182.2895.0452.6485-.231.8353-.014.5565.8436.0656.9222.4804-.061.0067-.1286-.0095-.1774.0373-.2239.2172-.4805-.1645-.7385-.007-.3464.174-.3808.3161-.8096.352-.0237-.0359-.0143-.0592.0059-.0811.1207-.1399.1295-.3046.3356-.3643-.2122-.0334-.3899.0833-.5686.1757-.2323.095-.2304-.2141-.5878.0164-.0396-.0322-.0208-.0615.0018-.0864.0908-.1107.2102-.127.345-.1208-.663-.3686-.9751.4507-1.2813.0432-.092.0243-.1265.1068-.1845.1652-.05-.0548-.0123-.1212-.0099-.1857-.0598-.028-.1356-.041-.1179-.1366-.1171-.0395-.1988.0295-.286.0952-.0787-.0608.0532-.1492.0776-.2125.0702-.1216.23-.025.3111-.1126.2306-.1308.552.0814.8155.0455.203.0255.4544-.1825.3526-.39-.2171-.2767-.179-.6386-.1839-.9695-.0268-.1929-.491-.4382-.6252-.6462-.1659-.1873-.295-.4047-.4243-.6182-.4666-.9008-.3198-2.0584-.9077-2.8947-.266.1466-.6125.0774-.8418-.119-.1238.1125-.1292.2598-.139.4161-.297-.2962-.2593-.8559-.022-1.1855.0969-.1302.2127-.2373.342-.3316.0292-.0213.0391-.0419.0385-.0747.1174-.5267.5764-.7391 1.0694-.7267m12.4071.46c.5575 0 1.0806.2159 1.474.6082s.61.9145.61 1.4704c0 .556-.2167 1.078-.61 1.4698v.0006l-.902.8995a2.08 2.08 0 0 1-.8597.5166l-.0164.0047-.0058.0164a2.05 2.05 0 0 1-.474.7308l-.9018.8995c-.3934.3924-.917.6083-1.4745.6083s-1.0806-.216-1.474-.6083c-.813-.8107-.813-2.1294 0-2.9402l.9019-.8995a2.056 2.056 0 0 1 .858-.5143l.017-.0053.0058-.0158a2.07 2.07 0 0 1 .4752-.7337l.9018-.8995c.3934-.3924.9171-.6083 1.4745-.6083zm0 .8965a1.18 1.18 0 0 0-.8388.3462l-.9018.8995a1.181 1.181 0 0 0-.3427.9252l.0053.0572c.0323.2652.149.5044.3374.6917.13.1296.2733.2114.4471.2686a.9.9 0 0 1 .014.1582.884.884 0 0 1-.2609.6304l-.0554.0554c-.3013-.1028-.5525-.253-.7794-.4792a2.06 2.06 0 0 1-.5761-1.0968l-.0099-.0578-.0461.0368a1.1 1.1 0 0 0-.0876.0794l-.9024.8995c-.4623.461-.4623 1.212 0 1.673.2311.2305.535.346.8394.3461.3043 0 .6077-.1156.8388-.3462l.9019-.8995c.4623-.461.4623-1.2113 0-1.673a1.17 1.17 0 0 0-.4367-.2749 1 1 0 0 1-.014-.1611c0-.2591.1023-.505.2901-.6923.3019.1028.57.2694.7962.495.3007.2999.4994.679.5756 1.0968l.0105.0578.0455-.0373a1.1 1.1 0 0 0 .0887-.0794l.902-.8996c.4622-.461.4628-1.2124 0-1.6735a1.18 1.18 0 0 0-.8395-.3462Zm-9.973 5.1567-.0006.0006c-.0793.3078-.1048.8318-.506.847-.033.1776.1228.2445.2655.1874.141-.0645.2081.0508.2557.1657.2177.0317.5394-.0725.5516-.3298-.325-.1867-.4253-.5418-.5662-.8709"/></svg>LangChain</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#6D5EF0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M16.778 1.844v1.919q-.569-.026-1.138-.032-.708-.008-1.415.037c-1.93.126-4.023.728-6.149 2.237-2.911 2.066-2.731 1.95-4.14 2.75-.396.223-1.342.574-2.185.798-.841.225-1.753.333-1.751.333v4.229s.768.108 1.61.333c.842.224 1.789.575 2.185.799 1.41.798 1.228.683 4.14 2.75 2.126 1.509 4.22 2.11 6.148 2.236.88.058 1.716.041 2.555.005v1.918l7.222-4.168-7.222-4.17v2.176c-.86.038-1.611.065-2.278.021-1.364-.09-2.417-.357-3.979-1.465-2.244-1.593-2.866-2.027-3.68-2.508.889-.518 1.449-.906 3.822-2.59 1.56-1.109 2.614-1.377 3.978-1.466.667-.044 1.418-.017 2.278.02v2.176L24 6.014Z"/></svg>OpenRouter</div>
+          </div>
+          <div class="tool-cat">
+            <div class="tc-label">API testing</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#FF6C37" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 0 0-.593.25l-4.453 4.453-.307-.307-.643-.643c4.389-4.376 5.18-4.418 5.996-3.753zm-4.863 4.861l4.44-4.44a.62.62 0 1 1 .847.903l-4.699 4.125-.588-.588zm.33.694l-1.1.238a.06.06 0 0 1-.067-.032.06.06 0 0 1 .01-.073l.645-.645.512.512zm-2.803-.459l1.172-1.172.879.878-1.979.426a.074.074 0 0 1-.085-.039.072.072 0 0 1 .013-.093zm-3.646 6.058a.076.076 0 0 1-.069-.083.077.077 0 0 1 .022-.046h.002l.946-.946 1.222 1.222-2.123-.147zm2.425-1.256a.228.228 0 0 0-.117.256l.203.865a.125.125 0 0 1-.211.117h-.003l-.934-.934-.294-.295 3.762-3.758 1.82-.393.874.874c-1.255 1.102-2.971 2.201-5.1 3.268zm5.279-3.428h-.002l-.839-.839 4.699-4.125a.952.952 0 0 0 .119-.127c-.148 1.345-2.029 3.245-3.977 5.091zm3.657-6.46l-.003-.002a1.822 1.822 0 0 1 2.459-2.684l-1.61 1.613a.119.119 0 0 0 0 .169l1.247 1.247a1.817 1.817 0 0 1-2.093-.343zm2.578 0a1.714 1.714 0 0 1-.271.218h-.001l-1.207-1.207 1.533-1.533c.661.72.637 1.832-.054 2.522zM18.855 6.05a.143.143 0 0 0-.053.157.416.416 0 0 1-.053.45.14.14 0 0 0 .023.197.141.141 0 0 0 .084.03.14.14 0 0 0 .106-.05.691.691 0 0 0 .087-.751.138.138 0 0 0-.194-.033z"/></svg>Postman scripts</div>
+          </div>
+          <div class="tool-cat">
+            <div class="tc-label">Diagrams</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#FFC93C" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.392 0H13.9L17 4.808 10.444 0H6.949l3.102 6.3L3.494 0H0l3.05 8.131L0 24h3.494L10.05 6.985 6.949 24h3.494L17 5.494 13.899 24h3.493L24 3.672 17.392 0z"/></svg>Miro</div>
+          </div>
+          <div class="tool-cat">
+            <div class="tc-label">Build &amp; planning</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#111111" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"/></svg>Notion</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#0052CC" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M11.571 11.513H0a5.218 5.218 0 0 0 5.232 5.215h2.13v2.057A5.215 5.215 0 0 0 12.575 24V12.518a1.005 1.005 0 0 0-1.005-1.005zm5.723-5.756H5.736a5.215 5.215 0 0 0 5.215 5.214h2.129v2.058a5.218 5.218 0 0 0 5.215 5.214V6.758a1.001 1.001 0 0 0-1.001-1.001zM23.013 0H11.455a5.215 5.215 0 0 0 5.215 5.215h2.129v2.057A5.215 5.215 0 0 0 24 12.483V1.005A1.001 1.001 0 0 0 23.013 0Z"/></svg>Jira</div>
+            <div class="t-tool"><svg class="ti" style="--ic:#181717" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CAPABILITY ============================ -->
+<section class="section" id="capability">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span>05</span> Differentiation &amp; current capability</div>
+      <h2>A connected product, not a collection of features.</h2>
+      <p class="sec-lede">ComplyOS is differentiated by how its domains reinforce one another — and by
+        capabilities that are already working in the product.</p>
+    </div>
+
+    <div class="diff-grid">
+      <article class="diff reveal"><div class="d-n">01</div><h3>Connected compliance environment</h3><p>A unified environment rather than a collection of disconnected utilities.</p></article>
+      <article class="diff reveal" style="--d:.05s"><div class="d-n">02</div><h3>Shorter rule development cycle</h3><p>Configurable rule development with the potential to streamline ideation to testing and deployment.</p></article>
+      <article class="diff reveal" style="--d:.1s"><div class="d-n">03</div><h3>Document intelligence beyond storage</h3><p>Documentation becomes a searchable knowledge resource rather than a passive archive.</p></article>
+      <article class="diff reveal" style="--d:.15s"><div class="d-n">04</div><h3>Modular, tenant-aware architecture</h3><p>Separation between tenant data, with room for incremental product expansion.</p></article>
+      <article class="diff reveal" style="--d:.2s"><div class="d-n">05</div><h3>AI as an operational capability</h3><p>AI embedded in practical workflows rather than positioned as a separate chatbot.</p></article>
+    </div>
+
+    <div class="cap-toolbar reveal">
+      <span class="cap-count" id="capCount">9 capability areas</span>
+      <div class="filter-pills" role="group" aria-label="Filter capability by status">
+        <button class="fp on" data-filter="all">All</button>
+        <button class="fp" data-filter="implemented">Implemented</button>
+        <button class="fp" data-filter="partial">Integration / testing pending</button>
+        <button class="fp" data-filter="development">In development</button>
+      </div>
+    </div>
+
+    <div class="cap-table reveal" id="capTable">
+      <div class="cap-row" data-status="implemented">
+        <div class="cap-area">Regulatory documentation &amp; SOP management</div>
+        <div class="cap-badge done">Implemented</div>
+        <div class="cap-detail">Core functionality implemented</div>
+      </div>
+      <div class="cap-row" data-status="implemented">
+        <div class="cap-area">Compliance controls &amp; evidence workflows</div>
+        <div class="cap-badge done">Implemented</div>
+        <div class="cap-detail">Core functionality implemented</div>
+      </div>
+      <div class="cap-row" data-status="implemented">
+        <div class="cap-area">Tenant-specific database architecture</div>
+        <div class="cap-badge done">Implemented</div>
+        <div class="cap-detail">Implemented</div>
+      </div>
+      <div class="cap-row" data-status="implemented">
+        <div class="cap-area">FRAML transaction ingestion &amp; rule execution</div>
+        <div class="cap-badge done">Implemented</div>
+        <div class="cap-detail">Implemented</div>
+      </div>
+      <div class="cap-row" data-status="partial">
+        <div class="cap-area">FRAML rule builder</div>
+        <div class="cap-badge part">Partial</div>
+        <div class="cap-detail">UI and backend developed; integration pending</div>
+      </div>
+      <div class="cap-row" data-status="partial">
+        <div class="cap-area">FRAML simulation capability</div>
+        <div class="cap-badge part">Partial</div>
+        <div class="cap-detail">Developed; integration pending</div>
+      </div>
+      <div class="cap-row" data-status="development">
+        <div class="cap-area">ML-based anomaly detection</div>
+        <div class="cap-badge dev">In development</div>
+        <div class="cap-detail">Under development</div>
+      </div>
+      <div class="cap-row" data-status="partial">
+        <div class="cap-area">REST APIs</div>
+        <div class="cap-badge part">Partial</div>
+        <div class="cap-detail">Developed; functional testing pending</div>
+      </div>
+      <div class="cap-row" data-status="implemented">
+        <div class="cap-area">RAG-based compliance knowledge assistant</div>
+        <div class="cap-badge done">Implemented</div>
+        <div class="cap-detail">Implemented with retrieval optimisation</div>
+      </div>
+    </div>
+    <p class="cap-note reveal">ComplyOS is actively evolving — the roadmap shows how each of these areas
+      advances next.</p>
+  </div>
+</section>
+
+<!-- ============================ ROADMAP ============================ -->
+<section class="section alt" id="roadmap">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow"><span>06</span> Roadmap &amp; future releases</div>
+      <h2>Integration and validation before more complexity.</h2>
+      <p class="sec-lede">ComplyOS is being developed incrementally — strengthening existing capabilities,
+        connecting independently developed components and expanding the platform's intelligence.</p>
+    </div>
+
+    <div class="tracks">
+      <article class="track reveal">
+        <div class="track-top"><span class="track-n">01</span><h3>Financial crime monitoring</h3></div>
+        <p class="track-obj">Advance the platform's financial crime monitoring capabilities.</p>
+        <ul class="ticks">
+          <li>Complete integration and validation of existing monitoring components</li>
+          <li>Expand detection coverage across a broader range of financial crime risks</li>
+          <li>Strengthen monitoring workflows, alert handling and analytics</li>
+          <li>Improve interoperability and readiness for external integrations</li>
+        </ul>
+      </article>
+      <article class="track reveal" style="--d:.05s">
+        <div class="track-top"><span class="track-n">02</span><h3>AI-powered compliance intelligence</h3></div>
+        <p class="track-obj">Make compliance information more accessible and actionable.</p>
+        <ul class="ticks">
+          <li>Expand contextual intelligence across policies, SOPs and regulatory documentation</li>
+          <li>Improve document classification, metadata extraction and summarisation</li>
+          <li>Develop richer analytical capabilities for compliance information</li>
+          <li>Explore AI-assisted interpretation of monitoring outcomes and trends</li>
+        </ul>
+      </article>
+      <article class="track reveal" style="--d:.1s">
+        <div class="track-top"><span class="track-n">03</span><h3>Platform maturity &amp; extensibility</h3></div>
+        <p class="track-obj">Strengthen the foundation for broader functionality and reliability.</p>
+        <ul class="ticks">
+          <li>Complete and validate API integrations</li>
+          <li>Expand tenant administration and permission management</li>
+          <li>Strengthen monitoring, operational visibility and system health reporting</li>
+          <li>Improve auditability, performance and reliability across modules</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="closing reveal" id="contact">
+      <div class="closing-copy">
+        <p>From managing compliance activities in isolation to connecting the intelligence and execution behind
+          them.</p>
+        <p class="closing-sub">Have a suggestion, a question about a product decision, or something worth
+          discussing? I'd be glad to hear it — email is the fastest way to reach me.</p>
+      </div>
+      <div class="closing-actions">
+        <a class="btn primary" href="mailto:israrfeb18@gmail.com?subject=ComplyOS%20%E2%80%94%20product%20case%20study">Discuss the product
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a class="btn ghost" href="https://linkedin.com/in/israr-ali1998" target="_blank" rel="noopener">Connect with me on LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <img src="assets/img/logo.png" alt="ComplyOS">
+      <p>Unified Compliance Operations &amp; Financial Crime Intelligence Platform</p>
+      <p class="byline">Product case study by <b>Israr Ali</b> · 2026</p>
+    </div>
+    <nav class="foot-links" aria-label="Sections">
+      <a href="#problem">Problem</a><a href="#vision">Vision</a><a href="#architecture">Architecture</a>
+      <a href="#build">Build</a><a href="#capability">Capability</a><a href="#roadmap">Roadmap</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="foot-meta">
+      <p><a href="mailto:israrfeb18@gmail.com">Connect with me on Email</a></p>
+      <p><a href="https://linkedin.com/in/israr-ali1998" target="_blank" rel="noopener">Connect with me on LinkedIn</a></p>
+      <p class="muted">Interface screens use a demonstration tenant. No customer data is shown.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Screenshot viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+  <button class="lb-nav prev" id="lbPrev" aria-label="Previous">‹</button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption><span id="lbTitle"></span><span id="lbDesc"></span></figcaption>
+  </figure>
+  <button class="lb-nav next" id="lbNext" aria-label="Next">›</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
